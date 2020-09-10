@@ -1,0 +1,56 @@
+Lab 13.1 Northwind DB
+
+1. select * from Customers
+
+2. select distinct Country from Customers
+
+3. select * from Customers where CustomerID like 'BL%'
+
+4. SELECT TOP (100) [OrderID]
+      ,[CustomerID]
+      ,[EmployeeID]
+      ,[OrderDate]
+      ,[RequiredDate]
+      ,[ShippedDate]
+      ,[ShipVia]
+      ,[Freight]
+      ,[ShipName]
+      ,[ShipAddress]
+      ,[ShipCity]
+      ,[ShipRegion]
+      ,[ShipPostalCode]
+      ,[ShipCountry]
+  FROM [Northwind].[dbo].[Orders]
+  
+  5.select * from Orders where ShipPostalCode = '1010' or ShipPostalCode = '3012' or ShipPostalCode = '12209' or ShipPostalCode = '05023'
+  
+  6. select * from Orders where ShipRegion is not null
+  
+  7. select * from Customers order by Country, City asc
+  
+  8. insert into Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+values ('1984', 'The Party', 'Big Brother', 'Party Leader', 'Party Headquarters', 'Airstrip One','Region 1', '0001', 'Oceania', '800-WECALLYOU1', '888-WATCHINGYU')
+
+9. update Orders set ShipRegion = 'EuroZone' where ShipCountry = 'France'
+
+10.delete from [Order Details] where Quantity = '1'
+
+11. select avg(Quantity) as Average from [Order Details]
+select max(Quantity) as Maximum from [Order Details]
+select min(Quantity) as Minimum from [Order Details]
+
+12. select avg(Quantity) as Average from [Order Details] group by OrderID
+select max(Quantity) as Maximum from [Order Details] group by OrderID
+select min(Quantity) as Minimum from [Order Details] group by OrderID
+
+13. select * from Orders where OrderID like '10290'
+
+14. 
+
+15. select ShipCity, ShipCountry from Orders join Employees on Orders.EmployeeID = Employees.EmployeeID where Employees.City = 'London'
+
+16. select ShipName from Orders join Products on Orders.OrderID = Products.ProductID where Products.Discontinued = '1'
+
+17. select FirstName from Employees where ReportsTo is null
+
+18. select FirstName from Employees where ReportsTo = 2
